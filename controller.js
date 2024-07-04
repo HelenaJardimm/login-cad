@@ -21,6 +21,6 @@ function salvarUser(){
     if(nomeUser){
 
     } else{
-        alert("Favor, informar um nome");
+        alert("Favor, informar um nome para cadastro");
     }
 }
