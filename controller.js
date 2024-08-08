@@ -28,4 +28,7 @@ function salvarUser(){
 function crialista(){
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário</th><th>Ações</th>";
   
+    for(let i = 0; i <= (dadosLista.length -1); i ++){
+        
+    }
    }
