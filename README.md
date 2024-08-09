@@ -82,6 +82,56 @@ O layout é gerenciado pelo Bootstrap, o que garante que a página tenha um desi
 ![Função Acessar](img/Captura%20de%20tela%202024-08-09%20074107%20contoler.png)
 ![Função Acessar](img/Captura%20de%20tela%20contoler.png)
 
+# Array
+
+var dadosLista = [];
+Aqui, dadosLista é um array vazio criado para armazenar os nomes dos usuários que serão inseridos.
+
+function salvarUser(){
+    let nomeUser = document.getElementById('nomeUser').value;
+ 
+    if(nomeUser){
+        dadosLista.push(nomeUser);
+        console.log(dadosLista);
+        criarLista();
+        document.getElementById('nomeUser').value = "";
+    }
+    else{
+        alert("Favor informar o nome");
+    }
+}
+nomeUser é obtido do campo de entrada do usuário.
+Se nomeUser não estiver vazio, o nome é adicionado ao array dadosLista com dadosLista.push(nomeUser).
+A função criarLista() é chamada para atualizar a exibição da lista.
+O campo de entrada é limpo após adicionar o nome.
+
+function criarLista(){
+    let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário</th><th>Ações</th></tr>";
+    for(let i = 0; i <= (dadosLista.length -1); i++){ 
+        tabela += "<tr><td>" + dadosLista[i] + "</td><td>  <button onclick='excluir(this.parentNode.parentNode.rowIndex)'>Excluir</button> <button onclick='editar(this.parentNode.parentNode.rowIndex)'>Editar</button> </td></tr>";
+        document.getElementById('tabela').innerHTML = tabela;
+    }
+}
+tabela começa com um cabeçalho para a tabela.
+O for itera sobre dadosLista, criando uma linha na tabela para cada nome no array.
+Cada linha inclui dois botões: "Excluir" e "Editar", que chamam as funções excluir e editar, respectivamente.
+Após adicionar todas as linhas, o conteúdo da tabela é atualizado.
+
+function excluir(i){
+    dadosLista.splice((i - i), 1);
+    document.getElementById('tabela').deleteRow(i);
+}
+A função usa splice para remover um elemento do array dadosLista. 
+
+function editar(i){
+    document.getElementById("nomeUser").value = dadosLista[(i - 1)];
+    dadosLista.splice(dadosLista[(i - 1)], 1);
+}
+A função define o valor do campo de entrada nomeUser para o nome correspondente no array.
+A tentativa de remover o nome do array usa splice.
+
+O método splice() altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.
+
 # Função de Validação de Login (acessar)
 Esta função verifica se os campos de e-mail e senha foram preenchidos corretamente. Quando o usuário clica no botão "ACESSAR":
 
