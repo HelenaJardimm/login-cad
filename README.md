@@ -178,5 +178,47 @@ editar(): Permite a edição de um nome existente, preenchendo o campo de entrad
 
 # IMAGENS DO PROJETO
 
-![Função Acessar](img/IMAGEM%20DO%20LOGIN%20.png)
+![Função Acessar](img/imgLogin.png)
 ![Função Acessar](img/IMAGEMDOSALVAR.png)
+
+# Validação de E-mail
+Este fragmento de código JavaScript realiza uma verificação básica para validar se um campo de entrada de e-mail está preenchido corretamente antes de prosseguir com uma ação.
+
+# Descrição
+O código verifica se o campo de e-mail identificado pelo ID emailUser contém um e-mail válido. A validação é feita verificando três condições:
+
+Se o campo está vazio.
+Se o campo contém o caractere @.
+Se o campo contém o caractere ..
+Se qualquer uma dessas condições não for atendida, um alerta será exibido solicitando que o usuário informe um e-mail válido. A função retorna false para evitar o envio ou a continuação do processo quando o e-mail não é considerado válido.
+ 
+Objetivo: Verificar se o campo de e-mail não está vazio e contém os caracteres básicos @ e . para garantir um formato de e-mail mínimo.
+
+Passos da Validação:
+
+Verificar se o campo está vazio:
+document.getElementById('emailUser').value == ""
+Se o campo estiver vazio, o código exibe uma mensagem de alerta.
+Verificar a presença do caractere @:
+document.getElementById('emailUser').value.indexOf('@') == -1
+Se o caractere @ não estiver presente no valor do campo, o código exibe uma mensagem de alerta.
+Verificar a presença do caractere .:
+document.getElementById('emailUser').value.indexOf('.') == -1
+Se o caractere . não estiver presente no valor do campo, o código exibe uma mensagem de alerta.
+Ação em Caso de Validação Falha:
+
+Se qualquer uma das condições de validação falhar, o código exibe um alerta com a mensagem "Por favor, informar um E-mail válido".
+O return false; impede o envio do formulário ou a execução da ação subsequente até que o e-mail válido seja fornecido.
+
+![Função Acessar](img/Capturadetela.png)
+
+       if (document.getElementById('emailUser').value == "" ||
+    document.getElementById('emailUser').value.indexOf('@') == -1 ||
+    document.getElementById('emailUser').value.indexOf('.') == -1) {
+    alert("Por favor, informar um E-mail válido");
+    return false;
+  } 
+
+# IMAGENS DA MODIFICAÇÃO DO EMAIL
+![Função Acessar](img/img-img.png)
+![Função Acessar](img/bb-bb.png)
